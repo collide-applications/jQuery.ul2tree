@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ul2tree</title>
+
+    <!-- Step 1: include jQuery ul2tree plugin -->
+    <script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+
+    <!-- Step 2: include jQuery ul2tree plugin -->
+    <script type="text/javascript" src="js/jquery.ul2tree-1.0.js"></script>
+
+    <!-- Step 3: initialize jQuery ul2tree plugin -->
+    <script type="text/javascript">
+        // call PHP script to get tree info
+        $.ajax({
+            url: 'get_tree.php',
+            data: {
+                id: 1,
+                single: true
+            },
+            type: 'post',
+            dataType: 'json',
+            success: function( objResp ){
+                // call jQuery ul2tree plugin to create tree from received info
+                $('#ul2tree').
+                ul2tree({
+                    info: objResp,
+                    single: true
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Step 4: create tree placeholder -->
+    <div id="ul2tree">
+        <!-- filled by jQuery ul2tree plugin -->
+    </div>
+
+</body>
+</html>
