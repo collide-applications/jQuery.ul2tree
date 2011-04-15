@@ -83,7 +83,9 @@
     methods.init = function(){
         // for each element of the original instance
         return this.each(function(){
-            
+            var html = '';
+
+            console.dir( $.fn.ul2tree.params );
         });
     }
 })(jQuery);    // end closure
