@@ -1,0 +1,24 @@
+div#ul2tree ul{
+    display:block;
+    float:left;
+    list-style-type:none;
+}
+div#ul2tree ul.collapse{
+    display:none;
+}
+div#ul2tree ul li div{
+    clear:both;
+    padding:5px;
+    background-color:#ddd;
+    color:#000;
+    border-bottom:1px solid #fff;
+    cursor:pointer;
+}
+div#ul2tree li.hover > div{
+    background-color:#aaa;
+    color:#000;
+}
+div#ul2tree li.selected > div{
+    background-color:#555;
+    color:#fff;
+}

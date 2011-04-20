@@ -4,22 +4,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>ul2tree</title>
 
-    <style type="text/css">
-        ul.expand{
-            display:block;
-        }
-        ul.collapse{
-            display:none;
-        }
-    </style>
-
-    <!-- Step 1: include jQuery ul2tree plugin -->
-    <script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+    <!-- Step 1: include styles -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
 
     <!-- Step 2: include jQuery ul2tree plugin -->
+    <script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+
+    <!-- Step 3: include jQuery ul2tree plugin -->
     <script type="text/javascript" src="js/jquery.ul2tree-1.0.js"></script>
 
-    <!-- Step 3: initialize jQuery ul2tree plugin -->
+    <!-- Step 4: initialize jQuery ul2tree plugin -->
     <script type="text/javascript">
         // call PHP script to get tree info
         $.ajax({
@@ -34,8 +28,16 @@
                 // call jQuery ul2tree plugin to create tree from received info
                 $('#ul2tree').
                 ul2tree({
-                    info: objResp,
-                    single: true
+                    info:           objResp,
+                    single:         true,
+                    collapse:       'collapse',
+                    selectMultiple: false,
+                    onSelect:       function(e){
+                        console.log('selected');
+                    },
+                    onUnselect:     function(e){
+                        console.log('unselected');
+                    }
                 });
             }
         });
@@ -43,7 +45,7 @@
 </head>
 <body>
 
-    <!-- Step 4: create tree placeholder -->
+    <!-- Step 5: create tree placeholder -->
     <div id="ul2tree">
         <!-- filled by jQuery ul2tree plugin -->
     </div>
